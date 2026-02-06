@@ -4,7 +4,7 @@
  */
 package lab3abstract;
 
-
+import java.awt.Image;
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 public class CartaPokemon extends Carta {
     private JButton boton;
     private static final String IMAGEN_DORSO="/resources/dorso.png";
+    private static final int TAMANIO = 90;
 
     public CartaPokemon(String imagen, int id) {
         super(imagen, id);
@@ -27,6 +28,9 @@ public class CartaPokemon extends Carta {
         boton.setFocusPainted(false);
         boton.setBorderPainted(false);
         boton.setContentAreaFilled(false);
+        boton.setPreferredSize(new java.awt.Dimension(TAMANIO, TAMANIO));
+        boton.setHorizontalAlignment(JButton.CENTER);
+        boton.setVerticalAlignment(JButton.CENTER);
     }
     
     @Override
@@ -54,11 +58,17 @@ public class CartaPokemon extends Carta {
         boton.setEnabled(false);
     }
     private ImageIcon cargarIcono(String ruta) {
-        java.net.URL url = getClass().getResource(ruta);
-        if (url == null) {
-            System.err.println("No se encontró el recurso: " + ruta);
-            return new ImageIcon(); 
-        }
-        return new ImageIcon(url);
+    java.net.URL url = getClass().getResource(ruta);
+    if (url == null) {
+        System.err.println("No se encontró el recurso: " + ruta);
+        return new ImageIcon();
     }
+
+    ImageIcon iconoOriginal = new ImageIcon(url);
+    Image imagenEscalada = iconoOriginal.getImage()
+            .getScaledInstance(TAMANIO, TAMANIO, Image.SCALE_SMOOTH);
+
+    return new ImageIcon(imagenEscalada);
+}
+
 }
