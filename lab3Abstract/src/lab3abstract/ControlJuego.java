@@ -31,7 +31,6 @@ public class ControlJuego implements Juego{
             
         } catch (Exception e){
             System.err.println("Error al crear el contro del juego");
-            e.printStackTrace();
         }
     }
     
@@ -63,7 +62,7 @@ public class ControlJuego implements Juego{
             return carta1.esParejaCon(carta2);
         }catch (Exception e){
             System.err.println("Error verificando pareja!");
-            e.printStackTrace();
+
             return false;
         }
     }
@@ -99,7 +98,6 @@ public class ControlJuego implements Juego{
             return false;
         }catch (Exception e){
             System.err.print("Error seleccionando carta");
-            e.printStackTrace();
             return false;
         }
     }
@@ -137,7 +135,6 @@ public class ControlJuego implements Juego{
             return esPareja;
         }catch (Exception e){
                 System.err.println("Error procesando intento");
-                e.printStackTrace();
                 return false;
                 }
     }
@@ -148,6 +145,9 @@ public class ControlJuego implements Juego{
     
     public Jugador getJugador2(){
         return jugador2;
+    }
+    public Jugador getJugadorActual() {
+        return jugador;
     }
     
     public Tablero getTablero(){
@@ -170,7 +170,7 @@ public class ControlJuego implements Juego{
             }
         }catch (Exception e){
             System.err.println("Error determinando el ganador.");
-            e.printStackTrace();
+
             return "Error determinando el ganador.";
             }
         return null;
