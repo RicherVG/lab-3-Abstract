@@ -168,11 +168,14 @@ public class ControlJuego implements Juego{
             }else if (aciertosJ2>aciertosJ1){
                 return "¡Felicitaciones" + jugador2.getNombre() + "gano con" + aciertosJ2 + "parejas!";
             }
+            else{
+                return "¡Empate! ambos jugadores tienen "+aciertosJ1+" parejas!";
+            }
         }catch (Exception e){
             System.err.println("Error determinando el ganador.");
 
             return "Error determinando el ganador.";
             }
-        return null;
+
         }
     }
