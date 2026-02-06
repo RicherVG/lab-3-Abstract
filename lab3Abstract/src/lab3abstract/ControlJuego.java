@@ -160,8 +160,8 @@ public class ControlJuego implements Juego{
     
     public String determinarGanadordelJuego(){
         try{
-            int aciertosJ1 = jugador.getAciertos();
-            int aciertosJ2 = jugador.getAciertos();
+            int aciertosJ1 = jugador1.getAciertos();
+            int aciertosJ2 = jugador2.getAciertos();
             
             if(aciertosJ1>aciertosJ2){
                 return "¡Felicitaciones " + jugador1.getNombre() + "gano con" + aciertosJ1 + "parejas!";
