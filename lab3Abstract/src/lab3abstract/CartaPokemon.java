@@ -13,7 +13,7 @@ import javax.swing.ImageIcon;
  */
 public class CartaPokemon extends Carta {
     private JButton boton;
-    private static final String IMAGEN_DORSO="resources/dorso.png";
+    private static final String IMAGEN_DORSO="/resources/dorso.png";
 
     public CartaPokemon(String imagen, int id) {
         super(imagen, id);
@@ -22,7 +22,7 @@ public class CartaPokemon extends Carta {
     }
     
     private void configurarBoton(){
-        boton.setIcon(new ImageIcon(IMAGEN_DORSO));
+        boton.setIcon(cargarIcono(IMAGEN_DORSO));
         boton.setFocusPainted(false);
         boton.setBorderPainted(false);
         boton.setContentAreaFilled(false);
@@ -30,17 +30,19 @@ public class CartaPokemon extends Carta {
     
     @Override
     public void mostrar() {
-         try {
-            boton.setIcon(new ImageIcon(imagen));
+        try {
+          
+            boton.setIcon(cargarIcono("/" + imagen));
             descubierta = true;
         } catch (Exception e) {
             System.err.println("Error al cargar imagen: " + imagen);
         }
+
     }
 
     @Override
     public void ocultar() {
-       boton.setIcon(new ImageIcon(IMAGEN_DORSO));
+       boton.setIcon(cargarIcono(IMAGEN_DORSO));
        descubierta=false;
     }
     public JButton getBoton(){
@@ -50,5 +52,12 @@ public class CartaPokemon extends Carta {
     public void desactivar(){
         boton.setEnabled(false);
     }
-    
+    private ImageIcon cargarIcono(String ruta) {
+        java.net.URL url = getClass().getResource(ruta);
+        if (url == null) {
+            System.err.println("No se encontró el recurso: " + ruta);
+            return new ImageIcon(); 
+        }
+        return new ImageIcon(url);
+    }
 }
