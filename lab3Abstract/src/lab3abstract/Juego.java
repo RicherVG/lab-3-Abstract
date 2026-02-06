@@ -9,5 +9,10 @@ package lab3abstract;
  * @author janinadiaz
  */
 public interface Juego {
+    void iniciarJuego();
+    void finalizarJuego();
+    void cambiarTurno();
+    boolean verificarParejaCartas(Carta carta1, Carta carta2);
+    boolean ifJuegoTermino();
     
 }

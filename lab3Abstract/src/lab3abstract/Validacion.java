@@ -9,5 +9,8 @@ package lab3abstract;
  * @author janinadiaz
  */
 public interface Validacion {
+    boolean validarDatos();
+    boolean validadNombre(String nombre);
+    void mostrarErrorValidar(String error);
     
 }
