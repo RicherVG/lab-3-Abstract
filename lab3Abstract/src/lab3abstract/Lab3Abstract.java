@@ -15,6 +15,8 @@ public class Lab3Abstract {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //test
+        
     }
     
 }
