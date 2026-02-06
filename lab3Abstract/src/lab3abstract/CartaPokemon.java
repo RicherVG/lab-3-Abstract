@@ -4,7 +4,7 @@
  */
 package lab3abstract;
 
-import resources.Carta;
+
 import javax.swing.JButton;
 import javax.swing.ImageIcon;
 
